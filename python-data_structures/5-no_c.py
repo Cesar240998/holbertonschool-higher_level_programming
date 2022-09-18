@@ -5,5 +5,5 @@ def no_c(my_string):
     for index in my_string_list:
         if index == 'c' or index == 'C':
             my_string_list[index_count] = ""
-            index_count += 1
-            return "".join(my_string_list)
+        index_count += 1
+    return "".join(my_string_list)
