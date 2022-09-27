@@ -59,6 +59,11 @@ Double string input:
     ...
     TypeError: a must be an integer
 
+    >>> add_integer(5, float(NaN))
+    Traceback (most recent call last):
+    ´´´
+    NameError: name 'NaN' is not defined
+
     >>> add_integer(float(NaN))
     Traceback (most recent call last):
     ...
