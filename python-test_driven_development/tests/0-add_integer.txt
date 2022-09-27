@@ -32,10 +32,10 @@ Float overflow:
     1598
 
 Float NaN:
-    >>> add_integer(float('NaN'))
+    >>> add_integer(1000e1000)
     Traceback (most recent call last):
     ...
-    OverflowError: cannot convert float NaN to integer
+    OverflowError: cannot convert float infinity to integer
 
 String input:
     >>> add_integer(4, "School")
