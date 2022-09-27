@@ -27,7 +27,7 @@ class Rectangle:
             raise (ValueError("width must be >= 0"))
         else:
             self.__width = value
-    
+
     @property
     def height(self):
         """Getter of the private attribute width"""
