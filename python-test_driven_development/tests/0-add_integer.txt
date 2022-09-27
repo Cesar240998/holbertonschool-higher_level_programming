@@ -12,12 +12,12 @@ First import ``add_integer``
 Now use it:
 
 Basic usage:
-    >>> add_integer(1, 2)
-    3
+    >>> add_integer(4, 2)
+    6
 
 Negative input:
-    >>> add_integer(100, -2)
-    98
+    >>> add_integer(10, -2)
+    8
 
 One input:
     >>> add_integer(2)
@@ -35,7 +35,7 @@ Float NaN:
     >>> add_integer(float('NaN'))
     Traceback (most recent call last):
     ...
-    ValueError: cannot convert float NaN to integer
+    OverflowError: cannot convert float NaN to integer
 
 String input:
     >>> add_integer(4, "School")
