@@ -31,7 +31,7 @@ Float overflow:
     >>> add_integer(1500.5)
     1598
 
-Float NaN:
+Float infinity:
     >>> add_integer(1000e1000)
     Traceback (most recent call last):
     ...
@@ -58,3 +58,8 @@ Double string input:
     Traceback (most recent call last):
     ...
     TypeError: a must be an integer
+
+    >>> add_integer(float(NaN))
+    Traceback (most recent call last):
+    ´´´
+    NameError: name 'NaN' is not defined
