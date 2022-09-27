@@ -1,4 +1,4 @@
-ing ``matrix_divided``
+Using ``matrix_divided``
 -----------------------
 
 Checks if all matrix items are ints or floats

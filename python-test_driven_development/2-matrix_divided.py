@@ -31,4 +31,4 @@ def matrix_divided(matrix, div):
                 inner_list.append(round(items / div, 2))
         res_matrix.append(inner_list)
 
-        return res_matrix
+    return res_matrix
