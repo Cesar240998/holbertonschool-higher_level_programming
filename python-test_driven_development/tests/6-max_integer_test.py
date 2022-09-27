@@ -49,7 +49,9 @@ class TestMaxInteger(unittest.TestCase):
         result = max_integer(l)
         self.assertEqual(result, 45)
     
-    def test_identical(self):                                                                                                                                                                                                                           """Test with a list of identical values: should return the value"""                                                                                                                                                                             l = [8, 8, 8, 8, 8]   
+    def test_identical(self):
+        """Test with a list of identical values: should return the value"""
+        l = [8, 8, 8, 8, 8]
         result = max_integer(l)
         self.assertEqual(result, 8)
 
@@ -61,7 +63,4 @@ class TestMaxInteger(unittest.TestCase):
 
     def test_none(self):
         """Test with a None as parameter: should raise a TypeError"""
-        self.assertRaises(TypeError, max_integer, None) 
-
-if __name__ == '__main__':
-    unittest.main()
+        self.assertRaises(TypeError, max_integer, None)
