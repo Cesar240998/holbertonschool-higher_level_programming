@@ -41,7 +41,7 @@ class TestMaxInteger(unittest.TestCase):
 
     def test_not_list(self):
         """Test with a parameter that's not a list: should raise a TypeError"""
-        self.assertRaises(TypeError, max_integer, 7
+        self.assertRaises(TypeError, max_integer, 7)
 
     def test_unique(self):
         """Test with a list of one int: should return the value of this int"""
