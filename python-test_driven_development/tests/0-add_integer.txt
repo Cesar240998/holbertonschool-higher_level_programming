@@ -63,8 +63,3 @@ Double string input:
     Traceback (most recent call last):
     ´´´
     NameError: name 'NaN' is not defined
-
-    >>> add_integer(float(NaN))
-    Traceback (most recent call last):
-    ...
-    ValueError: cannot convert float NaN to an integer
