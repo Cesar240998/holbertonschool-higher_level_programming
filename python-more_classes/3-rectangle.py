@@ -60,7 +60,7 @@ class Rectangle:
         """
         res = ""
         if self.__width == 0 or self.__height == 0:
-        return res
+            return res
 
         for i in range(self.__height):
             if i == self.__height - 1:
