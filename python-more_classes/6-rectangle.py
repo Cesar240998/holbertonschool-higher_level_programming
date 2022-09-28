@@ -8,7 +8,7 @@ Create a Class Rectangle with:
 
 class Rectangle:
     """Class - Rectangle"""
-    
+
     #Public
     number_of_instances = 0
 
