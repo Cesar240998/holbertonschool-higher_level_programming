@@ -9,7 +9,7 @@ Create a Class Rectangle with:
 class Rectangle:
     """Class - Rectangle"""
 
-    #Public
+    # Public
     number_of_instances = 0
 
     def __init__(self, width=0, height=0):
