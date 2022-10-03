@@ -5,8 +5,7 @@ Rectangle = __import__('9-base_geometry').Rectangle
 
 
 class Square(Rectangle):
-    """
-    Class square based in rectangle
+    """Class square based in rectangle
     """
     def __init__(self, size):
         super().integer_validator("size", size)
