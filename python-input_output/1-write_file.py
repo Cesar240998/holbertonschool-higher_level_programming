@@ -11,5 +11,5 @@ def write_file(filename="", text=""):
 
     with open(filename, mode="w", encoding="utf-8") as _file:
         _file.write(text)
-    
+
     return (len(text))
