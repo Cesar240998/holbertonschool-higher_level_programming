@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 """base_geometry
 """
-
-
 Rectangle = __import__('9-base_geometry').Rectangle
 
 
