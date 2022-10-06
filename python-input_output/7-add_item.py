@@ -3,20 +3,23 @@
 add_item
 """
 
+from sys import argv
+from os.path import exists
 
-import sys
+save_to_json_file = __import__("5-save_to_json_file").save_to_json_file
+load_from_json_file = __import__("6-load_from_json_file").load_from_json_file
 
+namefile = "add_item.json"
+argc = len(argv)
 
-load_from_json_file = __import__('8-load_from_json_file').load_from_json_file
-save_to_json_file = __import__('7-save_to_json_file').save_to_json_file
+file_list = []
 
-try:
-    loadFile = load_from_json_file("add_item.json")
-except FileNotFoundError:
-    loadFile = []
+if exists(namefile):
+    file_list = load_from_json_file(namefile)
 
-argc = len(sys.argv)
-
-for idx in range(1, argc):
-    loadFile.append(sys.argv[idx])
-save_to_json_file(loadFile, "add_item.json")
+if (argc == 1):
+    save_to_json_file(file_list, namefile)
+else:
+    for index in range(1, argc):
+        file_list.append(argv[index])
+    save_to_json_file(file_list, namefile)
