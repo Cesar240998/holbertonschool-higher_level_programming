@@ -4,7 +4,7 @@ This program appends a string at the end of a text file (UTF8) and returns the n
 """
 
 
-def write_file(filename="", text=""):
+def append_write(filename="", text=""):
     """
     Write in a file, if doesn't exists create the file
     """
