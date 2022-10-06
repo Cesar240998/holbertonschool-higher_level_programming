@@ -22,4 +22,4 @@ def pascal_triangle(n):
                 lis[i][j] = lis[i - 1][j - 1] + lis[i - 1][j]
             else:
                 lis[i][j] = lis[i - 1][0]
-            return lis
+    return lis
