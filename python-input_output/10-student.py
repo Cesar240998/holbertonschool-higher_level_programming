@@ -15,7 +15,7 @@ class Student:
     def to_json(self, attrs=None):
         """Retrieves dictionary of Student
         """
-        if attrs == None or type(attrs) != list:
+        if attrs is None or type(attrs) != list:
             return self.__dict__
         else:
             temp = {}
