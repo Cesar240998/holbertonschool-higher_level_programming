@@ -13,4 +13,3 @@ def to_json_string(my_obj):
     """
     json_rep = json.dumps(my_obj)
     return json_rep
-
