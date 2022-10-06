@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This program appends a string at the end of a text file (UTF8) and returns the number of characters added
+This program appends a string at the end of a text file
 """
 
 
