@@ -5,7 +5,7 @@ This program define a Base class for other classes
 
 
 class Base:
-    """
+    """ 
     Base of the other shapes
     """
     __nb_objects = 0

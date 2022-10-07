@@ -18,25 +18,21 @@ class Rectangle(Base):
     @property
     def width(self):
         """Retrieves the width attribute."""
-
         return self.__width
 
     @property
     def heigth(self):
         """Retrieves the heigth attribute."""
-
         return self.__heigth
 
     @property
-    def width(self):
+    def x(self):
         """Retrieves the x attribute."""
-
         return self.__x
 
     @property
-    def width(self):
+    def y(self):
         """Retrieves the y attribute."""
-
         return self.__y
 
     @width.setter
