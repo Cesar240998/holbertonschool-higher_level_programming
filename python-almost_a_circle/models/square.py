@@ -15,9 +15,8 @@ class Square(Rectangle):
     def __str__(self):
         """Returns formatted information display
         """
-        return "[{}] ({}) {}/{} - {}".format(self.__class__.__name__,
-                                             self.id, self.x, self.y,
-                                             self.width)
+        return "({}) {}/{} - {}".format(self.id, self.x, self.y,
+                                        self.size)
 
     @property
     def size(self):
@@ -29,3 +28,19 @@ class Square(Rectangle):
         """
         self.width = value
         self.height = value
+
+    def update(self, *args, **kwargs):
+        """Updates square attributes."""
+        if len(kwargs) != 0:
+            for k, v in kwargs.items():
+                setattr(self, k, v)
+        elif len(args) != 0:
+            try:
+                self.id = args[0]
+                self.size = args[1]
+                self.x = args[2]
+                self.y = args[3]
+            except IndexError:
+                pass
+        else:
+            print()
