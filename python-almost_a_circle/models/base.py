@@ -4,6 +4,9 @@ This program define a Base class for other classes
 """
 
 
+import json
+
+
 class Base:
     """
     Base of the other shapes
