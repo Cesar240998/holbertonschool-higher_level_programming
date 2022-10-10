@@ -8,6 +8,8 @@ from models.rectangle import Rectangle
 
 
 class Test_Rectangle(unittest.TestCase):
+    """A class for test Rectangle
+    """
     def test_Rectangle_arguments_exist(self):
         """Tests main attributes of rectangle
         """
@@ -31,3 +33,28 @@ class Test_Rectangle(unittest.TestCase):
         self.assertEqual(r1.id, 5)
         r2.id = 13
         self.assertEqual(r2.id, 13)
+
+
+class Test_Rectangle_Attributes(unittest.TestCase):
+    def test_Rectangle_str(self):
+        """Tests attributes str
+        """
+        with self.assertRaises(TypeError):
+            r1 = Rectangle("1", 2)
+        with self.assertRaises(TypeError):
+            r2 = Rectangle(1, "2")
+        with self.assertRaises(TypeError):
+            r3 = Rectangle(1, 2, "3")
+        with self.assertRaises(TypeError):
+            r4 = Rectangle(1, 2, 3, "4")
+
+    def test_Rectangle_negative(self):
+        """Tests attributes in negative"""
+        with self.assertRaises(ValueError):
+            r1 = Rectangle(-1, 2)
+        with self.assertRaises(ValueError):
+            r2 = Rectangle(1, -2)
+        with self.assertRaises(ValueError):
+            r3 = Rectangle(1, 2, -3)
+        with self.assertRaises(ValueError):
+            r4 = Rectangle(1, 2, 3, -4)
