@@ -40,3 +40,23 @@ class Test_Base(unittest.TestCase):
         self.assertEqual(b1.id, "Messi")
         b2 = Base("Cris")
         self.assertEqual(b2.id, "Cris")
+
+    def test_Base_to_json_string_None(self):
+        """This methods validates a parameter None
+        """
+        json_dictionary = Base.to_json_string(None)
+        self.assertEqual(json_dictionary, '[]')
+
+    def test_empty_to_json_string(self):
+        """Test for a empty data on to_json_string method
+        """
+        empty_data = []
+        json_data = Base.to_json_string(empty_data)
+        self.assertEqual(json_data, "[]")
+
+    def test_to_json_string(self):
+        """Test to_json_string method
+        """
+        r1 = Rectangle(2, 11, 1, 11, 4)
+        json_data = Base.to_json_string([r1])
+        self.assertEqual(type(json_data), str)
