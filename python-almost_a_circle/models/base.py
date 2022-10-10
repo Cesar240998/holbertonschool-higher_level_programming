@@ -40,3 +40,12 @@ class Base:
             else:
                 write_file.write(cls.to_json_string(
                                  [item.to_dictionary() for item in list_objs]))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """
+        Returns JSON strings in list
+        """
+        if type(json_string) != str or len(json_string) == 0:
+            return []
+        return json.loads(json_string)
