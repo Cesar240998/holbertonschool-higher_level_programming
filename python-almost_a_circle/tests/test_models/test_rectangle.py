@@ -5,6 +5,7 @@ import unittest
 from io import StringIO
 import sys
 import os
+import json
 from unittest.mock import patch
 from models.rectangle import Rectangle
 from models.base import Base
@@ -146,3 +147,61 @@ class Test_Rectangle_Attributes_Methods(unittest.TestCase):
         self.assertEqual(str(r1), '[Rectangle] (89) 3/1 - 2/1')
         r1.update(x=1, height=2, y=3, width=4)
         self.assertEqual(str(r1), '[Rectangle] (89) 1/3 - 4/2')
+
+    def test_Rectangle_create(self):
+        """Test method Create
+        """
+        r1 = Rectangle.create(**{'id': 89})
+        self.assertEqual(str(r1), '[Rectangle] (89) 0/0 - 1/1')
+
+        r2 = Rectangle.create(**{'id': 89, 'width': 1})
+        self.assertEqual(str(r2), '[Rectangle] (89) 0/0 - 1/1')
+
+        r3 = Rectangle.create(**{'id': 89, 'width': 1, 'height': 2})
+        self.assertEqual(str(r3), '[Rectangle] (89) 0/0 - 1/2')
+
+        r4 = Rectangle.create(**{'id': 89, 'width': 1, 'height': 2, 'x': 3})
+        self.assertEqual(str(r4), '[Rectangle] (89) 3/0 - 1/2')
+
+        r5 = Rectangle.create(**{'id': 89, 'width': 1, 'height': 2, 'x': 3,
+                                 'y': 4})
+        self.assertEqual(str(r5), '[Rectangle] (89) 3/4 - 1/2')
+
+    def test_save_to_file(self):
+        """Testing save_to_file
+        """
+        test1 = Rectangle(1, 1, 1, 1, 1)
+        test2 = Rectangle(2, 2, 2, 2, 2)
+        l1 = [test1, test2]
+        Rectangle.save_to_file(l1)
+        with open("Rectangle.json", "r") as file:
+            ls = [test1.to_dictionary(), test2.to_dictionary()]
+            self.assertEqual(json.dumps(ls), file.read())
+        l2 = []
+        Rectangle.save_to_file(l2)
+        with open("Rectangle.json", "r") as file:
+            self.assertEqual("[]", file.read())
+        Rectangle.save_to_file(None)
+        with open("Rectangle.json", "r") as file:
+            self.assertEqual("[]", file.read())
+
+    def test_load_f_file(self):
+        """testing normal cases load file
+        """
+        test1 = Rectangle(1, 2, 3, 4, 5)
+        test2 = Rectangle(6, 7, 8, 9, 10)
+        li = [test1, test2]
+        Rectangle.save_to_file(li)
+        lo = Rectangle.load_from_file()
+        self.assertTrue(type(lo) is list)
+        self.assertEqual(len(lo), 2)
+        test1c = lo[0]
+        test2c = lo[1]
+        self.assertTrue(type(test1c) is Rectangle)
+        self.assertTrue(type(test2c) is Rectangle)
+        self.assertEqual(str(test1), str(test1c))
+        self.assertEqual(str(test2), str(test2c))
+        self.assertIsNot(test1, test1c)
+        self.assertIsNot(test2, test2c)
+        self.assertNotEqual(test1, test1c)
+        self.assertNotEqual(test2, test2c)
