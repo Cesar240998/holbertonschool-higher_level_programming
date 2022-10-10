@@ -42,7 +42,7 @@ class Test_Base(unittest.TestCase):
         self.assertEqual(b2.id, "Cris")
 
     def test_Base_to_json_string_None(self):
-        """This methods validates a parameter None
+        """This method validates a parameter None
         """
         json_dictionary = Base.to_json_string(None)
         self.assertEqual(json_dictionary, '[]')
@@ -59,4 +59,4 @@ class Test_Base(unittest.TestCase):
         """
         dic = {'x': 1, 'width': 2, 'y': 5}
         json_data = Base.to_json_string([dic])
-        self.assertEqual(json_data, '[{'x': 1, 'width': 2, 'y': 5}]')
+        self.assertEqual(json_data, '[{"x": 1, "width": 2, "y": 5}]')
