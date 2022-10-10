@@ -60,3 +60,14 @@ class Test_Base(unittest.TestCase):
         dic = {'x': 1, 'width': 2, 'y': 5}
         json_data = Base.to_json_string([dic])
         self.assertEqual(json_data, '[{"x": 1, "width": 2, "y": 5}]')
+
+    def test_from_json_string(self):
+        """Testing from_json_string(), uses to_json_string to format,
+        anything not in format should return []
+        """
+        lis = Rectangle.from_json_string(None)
+        lis1 = Rectangle.from_json_string([])
+        lis2 = Rectangle.from_json_string('[{"x": 1}, {"x": 4}]')
+        self.assertEqual(lis, [])
+        self.assertEqual(lis1, [])
+        self.assertEqual(lis2, [{'x': 1}, {'x': 4}])
