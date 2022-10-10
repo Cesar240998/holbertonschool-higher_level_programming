@@ -2,9 +2,12 @@
 """Unittest for class Base()
 """
 import unittest
-import io
+from io import StringIO
 import sys
+import os
+from unittest.mock import patch
 from models.rectangle import Rectangle
+from models.base import Base
 
 
 class Test_Rectangle(unittest.TestCase):
@@ -80,30 +83,27 @@ class Test_Rectangle_Attributes_Methods(unittest.TestCase):
         """Test function __str__
         """
         r1 = Rectangle(1, 2, 3, 4, 5)
-        self.assertEquals(str(r1), '[Rectangle] (5) 3/4 - 1/2')
+        self.assertEqual(str(r1), '[Rectangle] (5) 3/4 - 1/2')
 
     def test_Rectangle_display(self):
         """Test function display
         """
-        output = io.StringIO()
-        sys.stdout = output
         r1 = Rectangle(2, 3, 2, 2)
-        r1.display()
         prints = "\n\n  ##\n  ##\n  ##\n"
-        self.assertEquals(output.getvalue(), prints)
+        with patch('sys.stdout', new=StringIO()) as fake_out:
+            r1.display()
+            self.assertEqual(fake_out.getvalue(), prints)
 
     def test_Rectangle_display1(self):
-        output = io.StringIO()
-        sys.stdout = output
         r2 = Rectangle(1, 2, 1)
-        r2.display()
         prints = " #\n #\n"
-        self.assertEquals(output.getvalue(), prints)
-
+        with patch('sys.stdout', new=StringIO()) as fake_out:
+            r2.display()
+            self.assertEqual(fake_out.getvalue(), prints)
+    
     def test_Rectangle_display2(self):
-        output = io.StringIO()
-        sys.stdout = output
         r3 = Rectangle(1, 2)
-        r3.display()
         prints = "#\n#\n"
-        self.assertEquals(output.getvalue(), prints)
+        with patch('sys.stdout', new=StringIO()) as fake_out:
+            r3.display()
+            self.assertEqual(fake_out.getvalue(), prints)
