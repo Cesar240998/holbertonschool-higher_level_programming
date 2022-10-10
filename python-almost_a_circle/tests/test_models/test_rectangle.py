@@ -71,10 +71,10 @@ class Test_Rectangle_Attributes_Methods(unittest.TestCase):
     def test_area(self):
         """Test area
         """
-        r1 = Rectangle(3, 2)
+        r1 = Rectangle(1, 2)
+        self.assertEqual(r1.area(), 2)
+        r1.width = 3
         self.assertEqual(r1.area(), 6)
-        r1.width = 5
-        self.assertEqual(r1.area(), 10)
 
     def test_Rectangle_str__exist(self):
         """Test function __str__
@@ -91,10 +91,18 @@ class Test_Rectangle_Attributes_Methods(unittest.TestCase):
         r1.display()
         prints = "\n\n  ##\n  ##\n  ##\n"
         self.assertEquals(output.getvalue(), prints)
+
+    def test_Rectangle_display1(self):
+        output = io.StringIO()
+        sys.stdout = output
         r2 = Rectangle(1, 2, 1)
         r2.display()
         prints = " #\n #\n"
         self.assertEquals(output.getvalue(), prints)
+
+    def test_Rectangle_display2(self):
+        output = io.StringIO()
+        sys.stdout = output
         r3 = Rectangle(1, 2)
         r3.display()
         prints = "#\n#\n"
