@@ -5,6 +5,7 @@ This program define a Base class for other classes
 
 
 import json
+import os
 
 
 class Base:
