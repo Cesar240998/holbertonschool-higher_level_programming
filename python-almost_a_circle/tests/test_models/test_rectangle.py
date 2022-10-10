@@ -35,7 +35,7 @@ class Test_Rectangle(unittest.TestCase):
         self.assertEqual(r2.id, 13)
 
 
-class Test_Rectangle_Attributes(unittest.TestCase):
+class Test_Rectangle_Attributes_Methods(unittest.TestCase):
     def test_Rectangle_str(self):
         """Tests attributes str
         """
@@ -49,7 +49,8 @@ class Test_Rectangle_Attributes(unittest.TestCase):
             r4 = Rectangle(1, 2, 3, "4")
 
     def test_Rectangle_negative(self):
-        """Tests attributes in negative"""
+        """Tests attributes in negative
+        """
         with self.assertRaises(ValueError):
             r1 = Rectangle(-1, 2)
         with self.assertRaises(ValueError):
@@ -58,3 +59,43 @@ class Test_Rectangle_Attributes(unittest.TestCase):
             r3 = Rectangle(1, 2, -3)
         with self.assertRaises(ValueError):
             r4 = Rectangle(1, 2, 3, -4)
+
+    def test_Rectangle_with_zero(self):
+        """Tests zero in attributes
+        """
+        with self.assertRaises(ValueError):
+            r1 = Rectangle(1, 0)
+        with self.assertRaises(ValueError):
+            r2 = Rectangle(0, 1)
+
+    def test_area(self):
+        """Test area
+        """
+        r1 = Rectangle(3, 2)
+        self.assertEqual(r1.area(), 6)
+        r1.width = 5
+        self.assertEqual(r1.area(), 10)
+
+    def test_Rectangle_str__exist(self):
+        """Test function __str__
+        """
+        r1 = Rectangle(1, 2, 3, 4, 5)
+        self.assertEquals(str(r1), '[Rectangle] (5) 3/4 - 1/2')
+
+    def test_Rectangle_display(self):
+        """Test function display
+        """
+        output = io.StringIO()
+        sys.stdout = output
+        r1 = Rectangle(2, 3, 2, 2)
+        r1.display()
+        prints = "\n\n  ##\n  ##\n  ##\n"
+        self.assertEquals(output.getvalue(), prints)
+        r2 = Rectangle(1, 2, 1)
+        r2.display()
+        prints = " #\n #\n"
+        self.assertEquals(output.getvalue(), prints)
+        r3 = Rectangle(1, 2)
+        r3.display()
+        prints = "#\n#\n"
+        self.assertEquals(output.getvalue(), prints)
