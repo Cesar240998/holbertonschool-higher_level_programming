@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Unittest for class Base()
+"""Unittest for class Rectangle()
 """
 import unittest
 from io import StringIO
@@ -183,7 +183,8 @@ class Test_Rectangle_Attributes_Methods(unittest.TestCase):
             self.assertEqual("[]", file.read())
         Rectangle.save_to_file(None)
         with open("Rectangle.json", "r") as file:
-            self.assertEqual("[]", file.read())
+            ls = []
+            self.assertEqual(json.dumps(ls), file.read())
 
     def test_load_f_file(self):
         """testing normal cases load file
