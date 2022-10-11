@@ -183,6 +183,8 @@ class Test_Rectangle_Attributes_Methods(unittest.TestCase):
             self.assertEqual('[]', file.read())
 
     def test_save_to_file_None(self):
+        """parsing none case
+        """
         Rectangle.save_to_file(None)
         with open("Rectangle.json", "r") as file:
             ls = []
