@@ -168,23 +168,22 @@ class Test_Rectangle_Attributes_Methods(unittest.TestCase):
         self.assertEqual(str(r5), '[Rectangle] (89) 3/4 - 1/2')
 
     def test_save_to_file(self):
-        """Testing save_to_file
+        """These methods will test save_to_file
         """
-        test1 = Rectangle(1, 1, 1, 1, 1)
-        test2 = Rectangle(2, 2, 2, 2, 2)
-        l1 = [test1, test2]
-        Rectangle.save_to_file(l1)
+        test1 = Rectangle(1, 1, 1, 1)
+        test2 = Rectangle(2, 2, 2, 2)
+        lista = [test1, test2]
+        Rectangle.save_to_file(lista)
         with open("Rectangle.json", "r") as file:
             ls = [test1.to_dictionary(), test2.to_dictionary()]
             self.assertEqual(json.dumps(ls), file.read())
-        l2 = []
-        Rectangle.save_to_file(l2)
+
+    def test_save_to_file_empty(self):
+        Rectangle.save_to_file([])
         with open("Rectangle.json", "r") as file:
             self.assertEqual('[]', file.read())
 
     def test_save_to_file_None(self):
-        """parsing none case
-        """
         Rectangle.save_to_file(None)
         with open("Rectangle.json", "r") as file:
             ls = []
