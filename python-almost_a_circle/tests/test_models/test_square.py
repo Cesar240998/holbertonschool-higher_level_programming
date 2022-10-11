@@ -14,6 +14,25 @@ from models.base import Base
 class Test_Square(unittest.TestCase):
     """A class for test Square
     """
+
+    def test_Square_attributes(self):
+        """Test Square class: check for attributes.
+        """
+        s0 = Square(1)
+        self.assertEqual(s0.id, 1)
+        s1 = Square(5, 3, 4)
+        self.assertEqual(s1.height, 5)
+        self.assertEqual(s1.width, 5)
+        self.assertEqual(s1.x, 3)
+        self.assertEqual(s1.y, 4)
+        self.assertEqual(s1.id, 2)
+
+    def test_10_1(self):
+        """Test __str__ representation.
+        """
+        s1 = Square(9, 4, 5, 6)
+        self.assertEqual(str(s1), "[Square] (6) 4/5 - 9")
+
     def test_save_to_file(self):
         """Testing save_to_file"""
         test1 = Square(1, 1, 1, 1)
