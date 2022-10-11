@@ -19,7 +19,7 @@ class Test_Square(unittest.TestCase):
         test1 = Square(1, 1, 1, 1)
         test2 = Square(2, 2, 2, 2)
         li = [test1, test2]
-        Square.save_to_file(l)
+        Square.save_to_file(li)
         with open("Square.json", "r") as file:
             ls = [test1.to_dictionary(), test2.to_dictionary()]
             self.assertEqual(json.dumps(ls), file.read())
@@ -27,7 +27,7 @@ class Test_Square(unittest.TestCase):
     def test_empty_str(self):
         """pasing empy string"""
         li = []
-        Square.save_to_file(l)
+        Square.save_to_file(li)
         with open("Square.json", "r") as file:
             self.assertEqual("[]", file.read())
 
