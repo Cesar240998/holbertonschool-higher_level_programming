@@ -180,7 +180,9 @@ class Test_Rectangle_Attributes_Methods(unittest.TestCase):
         l2 = []
         Rectangle.save_to_file(l2)
         with open("Rectangle.json", "r") as file:
-            self.assertEqual("[]", file.read())
+            self.assertEqual('[]', file.read())
+
+    def test_save_to_file_None(self):
         Rectangle.save_to_file(None)
         with open("Rectangle.json", "r") as file:
             ls = []
