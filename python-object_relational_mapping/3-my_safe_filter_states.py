@@ -22,9 +22,9 @@ if __name__ == '__main__':
     except Exception:
         print("Can't connect to database")
         exit(0)
-    
+
     state = argv[4]
-    
+
     cursor = db.cursor()
 
     cursor.execute("SELECT * FROM states WHERE name = BINARY \
