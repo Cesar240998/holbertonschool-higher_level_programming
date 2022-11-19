@@ -36,7 +36,7 @@ if __name__ == '__main__':
 
     final_array = []
 
-    for row in m:
+    for row in range(m):
         final_array.append(m[row][0])
 
     print(', '.join(final_array))
