@@ -34,8 +34,12 @@ if __name__ == '__main__':
 
     m = cursor.fetchall()
 
+    final_array = []
+
     for row in m:
-        print(row)
+        final_array.append(m[row][0])
+
+    print(', '.join(final_array))
 
     cursor.close()
     db.close()
