@@ -36,10 +36,10 @@ if __name__ == '__main__':
 
     final_array = []
 
-    for row in range(m):
-        final_array.append(m[row][0])
+    for row in m:
+        final_array.append(row[0])
 
-    print(', '.join(final_array))
+    print(", ".join(final_array))
 
     cursor.close()
     db.close()
