@@ -4,6 +4,17 @@
 if __name__ == '__main__':
     from sys import argv
     import MySQLdb
+    import re
+
+    if (len(argv) != 5):
+        print('Use: username, password, database name, state name')
+        exit(1)
+
+    searched = ' '.join(argv[4].split())
+
+    if (re.search('^[a-zA-Z ]+$', searched) is None):
+        print('Enter a valid name state (example: Arizona)')
+        exit(1)
 
     try:
         db = MySQLdb.connect(host='localhost', port=3306, user=argv[1],
@@ -16,17 +27,15 @@ if __name__ == '__main__':
 
     cursor = db.cursor()
 
-    cursor.execute("SELECT cities.id, cities.name, states.name FROM cities\
-                    JOIN states ON cities.state_id = states.id AND\
-                    states.name = '{:s}' ORDER BY\
-                    cities.id ASC".format(sys.argv[4]))
+    cursor.execute("SELECT cities.name FROM cities\
+                    INNER JOIN states ON cities.state_id=states.id\
+                    WHERE states.name = '{:s}'\
+                    ORDER BY cities.id ASC;".format(state))
 
     m = cursor.fetchall()
 
-    final_array = []
-
     for row in m:
-        final_array.append(m[row][0])
+        print(row)
 
     cursor.close()
     db.close()
