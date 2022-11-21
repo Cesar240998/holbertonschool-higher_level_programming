@@ -1,4 +1,4 @@
-    #!/usr/bin/python3
+#!/usr/bin/python3
 """Lists all states with a name starting with N from a database"""
 
 if __name__ == '__main__':
