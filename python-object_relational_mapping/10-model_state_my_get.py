@@ -7,7 +7,7 @@ if __name__ == '__main__':
     from model_state import Base, State
     from sys import argv
 
-    if (len(argv) != 4):
+    if (len(argv) != 5):
         print('Use: username, password and database name')
         exit(1)
 
