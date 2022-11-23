@@ -6,9 +6,10 @@ if __name__ == '__main__':
     from sqlalchemy import create_engine
     from model_state import Base, State
     from sys import argv
+    import re
 
     if (len(argv) != 5):
-        print('Use: username, password and database name')
+        print('Use: username, password, database name and state')
         exit(1)
 
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
@@ -16,7 +17,7 @@ if __name__ == '__main__':
 
     state = argv[4]
 
-    if (re.search('^[a-zA-Z ]+$', searched) is None):
+    if (re.search('^[a-zA-Z ]+$', state) is None):
         print('Enter a valid name state (example: Arizona)')
         exit(1)
 
@@ -32,6 +33,6 @@ if __name__ == '__main__':
         print("Not found")
     else:
         for state in states:
-            print(state.id)
+            print(f'{state.id}')
     
     session.close()
