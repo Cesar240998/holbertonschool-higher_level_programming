@@ -16,10 +16,11 @@ if __name__ == '__main__':
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    states = session.query(State).filter(State.name.like('%a%'))
+    rows = session.query(State).all()
 
-    for state in states:
-        session.delete(state)
+    for i in rows:
+        if 'a' in i.__dict__['name']:
+            session.delete(i)
 
     session.commit()
     session.close()
