@@ -16,7 +16,7 @@ if __name__ == "__main__":
 
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
         argv[1], argv[2], argv[3]), pool_pre_ping=True)
-    
+
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
@@ -26,5 +26,5 @@ if __name__ == "__main__":
 
     for row in result:
         print(f'{row.State.name}: ({row.id}) {row.City.name}')
-    
+
     session.close()
