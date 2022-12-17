@@ -11,8 +11,8 @@ request(url, function (error, response, body) {
     for (const dict of results) {
       for (const item of dict.characters) {
         if (item.endsWith('/18/')) {
-	  count++;
-	}	
+          count++;
+        }
       }
     }
     console.log(count);
