@@ -12,8 +12,7 @@ request(url, function (error, response, body) {
       for (const item of dict.characters) {
         if (item.endsWith('/18/')) {
 	  count++;
-	}
-	
+	}	
       }
     }
     console.log(count);
