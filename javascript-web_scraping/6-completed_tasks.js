@@ -13,12 +13,12 @@ request(url, (err, response, body) => {
     for (const dGet of dIn) {
       if (dGet.completed) {
         newKey = '' + dGet.userId;
-	if (!dExp[newKey]) {
-	  dExp[newKey] = 1;
-	} else {
+        if (!dExp[newKey]) {
+          dExp[newKey] = 1;
+        } else {
 	  newValue = dExp[newKey];
-	  dExp[newKey] = newValue + 1;
-	}
+          dExp[newKey] = newValue + 1;
+        }
       }
     }
     console.log(dExp);
