@@ -16,7 +16,7 @@ request(url, (err, response, body) => {
         if (!dExp[newKey]) {
           dExp[newKey] = 1;
         } else {
-	  newValue = dExp[newKey];
+          newValue = dExp[newKey];
           dExp[newKey] = newValue + 1;
         }
       }
